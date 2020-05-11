@@ -1,0 +1,100 @@
+<p>admin-login works!</p>
+<div class="container">
+  <div class="d-flex justify-content-center h-100">
+    <div class="card">
+      <div class="card-header bg-blue">
+        <h3 class="admin-title">Admin Login</h3>
+      </div>
+      <div class="card-body main">
+        <form
+          [formGroup]="adminLoginForm"
+          (ngSubmit)="submitLogin(adminLoginForm.value)"
+          novalidate
+        >
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Username"
+              formControlName="username"
+              required
+              autofocus
+              [ngClass]="{
+                'is-invalid':
+                  (adminLoginForm.get('username').touched ||
+                    adminLoginForm.get('username').dirty) &&
+                  !adminLoginForm.get('username').valid
+              }"
+            />
+            <span
+              class="error-span"
+              *ngIf="
+                (adminLoginForm.get('username').touched ||
+                  adminLoginForm.get('username').dirty) &&
+                adminLoginForm.get('username').errors?.required
+              "
+            >
+              <span class="error-msg">Username Is Required</span>
+            </span>
+          </div>
+          <div class="form-group">
+            <input
+              type="password"
+              class="form-control"
+              placeholder="password"
+              formControlName="password"
+              required
+              [ngClass]="{
+                'is-invalid':
+                  (adminLoginForm.get('password').touched ||
+                    adminLoginForm.get('password').dirty) &&
+                  !adminLoginForm.get('password').valid
+              }"
+            />
+            <span
+              class="error-span"
+              *ngIf="
+                (adminLoginForm.get('password').touched ||
+                  adminLoginForm.get('password').dirty) &&
+                adminLoginForm.get('password').errors?.required
+              "
+            >
+              <span class="error-msg">Password Is Required</span>
+            </span>
+          </div>
+          <div class="align-items-center remember">
+            <input type="checkbox" />Remember Me
+          </div>
+          <div class="form-group">
+            <!-- <button
+              mat-raised-button
+              type="button"
+              class="float-right bg-blue"
+              (click)="resetForm()"
+            >
+              Reset
+            </button> -->
+            <button
+              type="button"
+              class="float-right btn btn-danger"
+              (click)="resetForm()"
+              [disabled]="!adminLoginForm.valid"
+            >
+              Reset
+            </button>
+            <button
+              type="submit"
+              class="float-right btn btn-success mr-8"
+              [disabled]="!adminLoginForm.valid"
+            >
+              Login
+            </button>
+            <!-- <button mat-raised-button type="submit" class="float-right bg-blue">
+              Login
+            </button> -->
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
