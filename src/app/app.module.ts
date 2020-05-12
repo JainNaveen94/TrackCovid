@@ -8,17 +8,28 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 import { HeaderComponent } from './shared/components/Header-Component/header/header.component';
 
+import { AdminModuleModule } from './admin-module/admin-module.module';
+
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { ApiInMemoryDbService } from "./shared/api/api-in-memory-db.service";
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    SharedModule
+    SharedModule,
+    AdminModuleModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(ApiInMemoryDbService, {
+      dataEncapsulation: false,
+      passThruUnknownUrl: true,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

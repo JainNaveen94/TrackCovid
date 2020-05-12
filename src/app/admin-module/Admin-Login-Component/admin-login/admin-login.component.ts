@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Observable } from 'rxjs';
 
 import { AdminLoginService } from '../../../services/admin/admin-login.service';
 
@@ -13,12 +12,14 @@ import { IAdmin } from 'src/app/shared/interfaces/IAdmin.model';
   selector: 'app-admin-login',
   templateUrl: './admin-login.component.html',
   styleUrls: ['./admin-login.component.styl'],
+  providers: [AdminLoginService],
 })
 export class AdminLoginComponent implements OnInit {
   adminLoginForm: FormGroup;
   admin: IAdmin;
 
   constructor(
+    private formBuilder: FormBuilder,
     private route: Router,
     private toasterService: ToastrService,
     private adminLoginService: AdminLoginService
@@ -27,8 +28,8 @@ export class AdminLoginComponent implements OnInit {
   submitLogin(adminData:IAdmin) {
     if(this.adminLoginService.validateUser(adminData)) {
       sessionStorage.setItem('TOKEN', 'token');
-      sessionStorage.setItem('username', adminData.username);
-      this.route.navigate(['/add-news']);
+      sessionStorage.setItem('USERNAME', adminData.username);
+      this.route.navigate(['/login/add-news']);
       this.toasterService.success(`${adminData.username} login successfully`);
     } else {
       this.toasterService.warning('Please Try again with Valid Credentials', 'User Name or Password is not Valid');
@@ -40,9 +41,9 @@ export class AdminLoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.adminLoginForm = new FormGroup({
-      username: new FormControl('', Validators.required),
-      password: new FormControl('', Validators.required),
+    this.adminLoginForm = this.formBuilder.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required],
     });
   }
 }
