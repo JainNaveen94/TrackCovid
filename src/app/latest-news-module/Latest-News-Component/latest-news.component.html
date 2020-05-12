@@ -1,1 +1,26 @@
-<p>latest-news works!</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-4 p-20"  *ngFor="let news of newsInfo">
+      <mat-card class="example-card p-0">
+        <mat-card-header class="bg-blue">
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title class="m-0">{{ news.title }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="p-2 m-0 fnt-fmly f-16">
+          <div class="row m-0 contnt">
+            <span>{{ news.description }}</span>
+          </div>
+          <div class="row m-0 pt-2 grid-display">
+            <button
+              type="submit"
+              (click)="moreInfo(news.uri)"
+              class="btn btn-success"
+            >
+              More Info
+            </button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
