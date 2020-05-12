@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { INews } from 'src/app/shared/interfaces/INews.model';
 import { Router } from '@angular/router';
+import { NewsService } from 'src/app/services/news/news.service';
 
 @Component({
   selector: 'app-latest-news',
@@ -10,10 +11,18 @@ import { Router } from '@angular/router';
 export class LatestNewsComponent implements OnInit {
   newsInfo: INews[] = [];
 
-  constructor(private route: Router) {}
+  constructor(private route: Router, private newsService: NewsService) {
+    this.getNews();
+  }
 
-  moreInfo(uri:string) {
-    window.open(uri, '_blank')
+  moreInfo(uri: string) {
+    window.open(uri, '_blank');
+  }
+
+  getNews() {
+    this.newsService.getNews().subscribe((data) => {
+      this.newsInfo = data;
+    });
   }
 
   ngOnInit(): void {}

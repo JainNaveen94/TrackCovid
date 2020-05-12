@@ -43,7 +43,7 @@ export class AddNewsComponent implements OnInit {
       console.log("HIT Successfully Done", data);
     });
     this.toasterService.success('news added successfully!');
-    this.route.navigate(['/login']);
+    this.route.navigate(['/news']);
   }
 
 

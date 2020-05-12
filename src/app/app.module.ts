@@ -17,6 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { ApiInMemoryDbService } from "./shared/api/api-in-memory-db.service";
 
+import { NewsService } from "./services/news/news.service";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +39,9 @@ import { ApiInMemoryDbService } from "./shared/api/api-in-memory-db.service";
       passThruUnknownUrl: true,
     }),
   ],
-  providers: [],
+  providers: [
+    NewsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
