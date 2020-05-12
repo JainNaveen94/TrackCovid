@@ -23,12 +23,7 @@ export class AdminLoginComponent implements OnInit {
     private route: Router,
     private toasterService: ToastrService,
     private adminLoginService: AdminLoginService
-  ) {
-    this.adminLoginForm = this.formBuilder.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required],
-    });
-  }
+  ) {}
 
   submitLogin(adminData:IAdmin) {
     if(this.adminLoginService.validateUser(adminData)) {
@@ -46,5 +41,9 @@ export class AdminLoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.adminLoginForm = this.formBuilder.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required],
+    });
   }
 }

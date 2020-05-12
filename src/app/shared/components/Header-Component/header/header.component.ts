@@ -8,9 +8,9 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  loginEnable: Boolean = true;
-  logoutEnable: Boolean = false;
-  AddNewzEnable: Boolean = false;
+  // loginEnable: Boolean = true;
+  // logoutEnable: Boolean = false;
+  // AddNewzEnable: Boolean = false;
 
   constructor(private route: Router) {
   }
@@ -20,16 +20,19 @@ export class HeaderComponent implements OnInit {
 
 
   logIn() {
-    this.loginEnable = false;
-    this.logoutEnable = true;
-    this.AddNewzEnable = true;
     this.route.navigate(['/login']);
   }
 
   logOut() {
-    this.loginEnable = true;
-    this.logoutEnable = false;
-    this.AddNewzEnable = false;
+    sessionStorage.clear();
+    this.route.navigate(['/login']);
+  }
+
+  logoutEnable(): boolean {
+    if (sessionStorage.getItem('TOKEN') !== null) {
+      return true;
+    }
+    return false;
   }
 
 }

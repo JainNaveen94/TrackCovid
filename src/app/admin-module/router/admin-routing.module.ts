@@ -14,7 +14,9 @@ export const adminRoutes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AdminModuleComponent],
+  declarations: [
+    AdminModuleComponent
+  ],
   imports: [RouterModule],
   exports: [RouterModule]
 })
