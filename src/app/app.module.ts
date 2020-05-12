@@ -10,6 +10,10 @@ import { HeaderComponent } from './shared/components/Header-Component/header/hea
 
 import { AdminModuleModule } from './admin-module/admin-module.module';
 
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { ApiInMemoryDbService } from "./shared/api/api-in-memory-db.service";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +24,12 @@ import { AdminModuleModule } from './admin-module/admin-module.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
-    AdminModuleModule
+    AdminModuleModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(ApiInMemoryDbService, {
+      dataEncapsulation: false,
+      passThruUnknownUrl: true,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

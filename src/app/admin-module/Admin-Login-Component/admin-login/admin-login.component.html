@@ -17,7 +17,6 @@
               class="form-control"
               placeholder="Username"
               formControlName="username"
-              required
               autofocus
               [ngClass]="{
                 'is-invalid':
@@ -43,7 +42,6 @@
               class="form-control"
               placeholder="password"
               formControlName="password"
-              required
               [ngClass]="{
                 'is-invalid':
                   (adminLoginForm.get('password').touched ||

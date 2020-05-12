@@ -1,1 +1,92 @@
-<p>add-news works!</p>
+<p>admin-login works!</p>
+<div class="container">
+  <div class="d-flex justify-content-center h-100">
+    <div class="card">
+      <div class="card-header bg-blue">
+        <h3 class="admin-title">Add News</h3>
+      </div>
+      <div class="card-body main">
+        <form
+          [formGroup]="newsForm"
+          (ngSubmit)="addNews(newsForm.value)"
+          novalidate
+        >
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Title"
+              formControlName="title"
+              autofocus
+              [ngClass]="{
+                'is-invalid':
+                  (newsForm.get('title').touched ||
+                    newsForm.get('title').dirty) &&
+                  !newsForm.get('title').valid
+              }"
+            />
+            <span
+              class="error-span"
+              *ngIf="
+                (newsForm.get('title').touched ||
+                  newsForm.get('title').dirty) &&
+                newsForm.get('title').errors?.required
+              "
+            >
+              <span class="error-msg">Title Is Required</span>
+            </span>
+          </div>
+          <div class="form-group">
+            <textarea
+              class="form-control"
+              placeholder="Description"
+              formControlName="description"
+              [ngClass]="{
+                'is-invalid':
+                  (newsForm.get('description').touched ||
+                    newsForm.get('description').dirty) &&
+                  !newsForm.get('description').valid
+              }"
+              rows="3"
+            ></textarea>
+            <span
+              class="error-span"
+              *ngIf="
+                (newsForm.get('description').touched ||
+                  newsForm.get('description').dirty) &&
+                newsForm.get('description').errors?.required
+              "
+            >
+              <span class="error-msg">Description Is Required</span>
+            </span>
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="URL"
+              formControlName="uri"
+            />
+          </div>
+          <div class="form-group">
+            <button
+              type="button"
+              class="float-right btn btn-danger"
+              (click)="resetForm()"
+              [disabled]="!newsForm.valid"
+            >
+              Reset
+            </button>
+            <button
+              type="submit"
+              class="float-right btn btn-success mr-8"
+              [disabled]="!newsForm.valid"
+            >
+              Add
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
