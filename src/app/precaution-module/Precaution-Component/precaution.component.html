@@ -1,1 +1,21 @@
-<p>precaution works!</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 align-cntnt-cntr">
+      <span class="pre-title blink">{{ precautionTitle | uppercase }}</span>
+    </div>
+  </div>
+  <div class="row pt-5">
+    <div class="col-4 pb-4 align-cntnt-cntr" *ngFor="let precaution of precautions">
+      <div class="row">
+        <div class="col-12">
+          <img [src]="precaution.uri" height="200px" width="200px" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <span class="img-title">{{precaution.title}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
