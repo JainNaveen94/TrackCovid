@@ -1,0 +1,43 @@
+<div class="card border-dark mb-3 border-radius-60" style="max-width: 18rem;">
+  <div class="card-body text-dark">
+    <div class="row">
+      <div class="col-4">
+        <img [src]="uri" height="70px" width="70px" />
+      </div>
+      <div class="col-8 self-align-center">
+        <div class="row">
+          <div class="col-12 text-align-center">
+            <span
+              [ngClass]="[
+                'title-head',
+                title === 'Active'
+                  ? 'act-color'
+                  : title === 'Recovered'
+                  ? 'rcvr-color'
+                  : title === 'Deaths'
+                  ? 'dth-color'
+                  : 'totl-color'
+              ]"
+              >{{ title | uppercase }}</span
+            >
+          </div>
+          <div class="col-12 text-align-center pt-2">
+            <span
+              [ngClass]="[
+                'title-head',
+                title === 'Active'
+                  ? 'act-color'
+                  : title === 'Recovered'
+                  ? 'rcvr-color'
+                  : title === 'Deaths'
+                  ? 'dth-color'
+                  : 'totl-color'
+              ]"
+              >{{ value }}</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

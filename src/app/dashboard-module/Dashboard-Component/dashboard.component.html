@@ -1,1 +1,18 @@
-<p>dashboard works!</p>
+<div class="container-fluid">
+  <div class="row pl-58">
+    <div class="col-3" *ngFor="let report of totalCaseReport">
+      <app-result-card
+        [title]="report.title"
+        [value]="report.value"
+        [uri]="report.uri"
+      ></app-result-card>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <app-result-table
+      [dataSource]="stateReport"
+      [columnDisplay]="columnDisplay"
+      [clickEnable]="enablePopup"
+    ></app-result-table>
+  </div>
+</div>

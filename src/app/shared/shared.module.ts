@@ -4,9 +4,6 @@ import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-// import { FormsModule } from '@angular/forms';
-// import { ReactiveFormsModule } from '@angular/forms';
-
 import { HttpClientModule } from '@angular/common/http';
 
 import { MatButtonModule } from '@angular/material/button';
@@ -20,6 +17,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTabsModule } from '@angular/material/tabs';
+import {MatDialogModule} from '@angular/material/dialog';
 
 import { ToastrModule } from 'ngx-toastr';
 
@@ -30,8 +28,6 @@ import { ToastrModule } from 'ngx-toastr';
     CommonModule,
     BrowserModule,
     BrowserAnimationsModule,
-    // FormsModule,
-    // ReactiveFormsModule,
     HttpClientModule,
     MatButtonModule,
     MatCardModule,
@@ -44,13 +40,12 @@ import { ToastrModule } from 'ngx-toastr';
     MatIconModule,
     MatSelectModule,
     MatTabsModule,
+    MatDialogModule,
     ToastrModule.forRoot(),
   ],
   exports: [
     BrowserModule,
     BrowserAnimationsModule,
-    // FormsModule,
-    // ReactiveFormsModule,
     HttpClientModule,
     MatButtonModule,
     MatCardModule,
@@ -63,6 +58,7 @@ import { ToastrModule } from 'ngx-toastr';
     MatIconModule,
     MatSelectModule,
     MatTabsModule,
+    MatDialogModule
   ]
 })
 export class SharedModule {

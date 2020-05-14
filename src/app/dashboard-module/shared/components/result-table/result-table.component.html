@@ -1,0 +1,104 @@
+<table
+  *ngIf="clickEnable"
+  mat-table
+  [dataSource]="dataSource"
+  class="mat-elevation-z8 table-prop"
+>
+  <!-- Position Column -->
+  <ng-container
+    matColumnDef="{{ column }}"
+    *ngFor="let column of columnDisplay"
+  >
+    <th mat-header-cell class="tbl-hd" *matHeaderCellDef>
+      <span
+        [ngClass]="[
+          column === 'active'
+            ? 'act-color'
+            : column === 'deaths'
+            ? 'dth-color'
+            : column === 'recovered'
+            ? 'rcvr-color'
+            : column === 'confirmed'
+            ? 'totl-color'
+            : ''
+        ]"
+        >{{ column | uppercase }}</span
+      >
+    </th>
+    <td mat-cell class="tbl-dta" *matCellDef="let element">
+      <span
+        [ngClass]="[
+          column === 'active'
+            ? 'act-color'
+            : column === 'deaths'
+            ? 'dth-color'
+            : column === 'recovered'
+            ? 'rcvr-color'
+            : column === 'confirmed'
+            ? 'totl-color'
+            : '',
+          column === 'state' ? 'fnt-wgt-700' : ''
+        ]"
+        >{{ element[column] }}</span
+      >
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnDisplay"></tr>
+  <tr
+    class="cursor-pointer"
+    mat-row
+    (click)="openPopup(element)"
+    *matRowDef="let element; columns: columnDisplay"
+  ></tr>
+</table>
+
+<table
+  *ngIf="!clickEnable"
+  mat-table
+  [dataSource]="dataSource"
+  class="mat-elevation-z8 table-prop-popup"
+>
+  <!-- Position Column -->
+  <ng-container
+    matColumnDef="{{ column }}"
+    *ngFor="let column of columnDisplay"
+  >
+    <th mat-header-cell class="tbl-hd" *matHeaderCellDef>
+      <span
+        [ngClass]="[
+          column === 'active'
+            ? 'act-color'
+            : column === 'deaths'
+            ? 'dth-color'
+            : column === 'recovered'
+            ? 'rcvr-color'
+            : column === 'confirmed'
+            ? 'totl-color'
+            : ''
+        ]"
+        >{{ column | uppercase }}</span
+      >
+    </th>
+    <td mat-cell class="tbl-dta" *matCellDef="let element">
+      <span
+        [ngClass]="[
+          column === 'active'
+            ? 'act-color'
+            : column === 'deaths'
+            ? 'dth-color'
+            : column === 'recovered'
+            ? 'rcvr-color'
+            : column === 'confirmed'
+            ? 'totl-color'
+            : '',
+          column === 'state' || 'district' ? 'fnt-wgt-700' : ''
+        ]"
+        >{{ element[column] }}</span
+      >
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnDisplay; sticky: true"></tr>
+  <tr mat-row *matRowDef="let element; columns: columnDisplay"></tr>
+</table>

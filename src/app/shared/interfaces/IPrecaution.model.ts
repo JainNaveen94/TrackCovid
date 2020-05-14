@@ -1,5 +1,4 @@
-export interface IPrecaution
-{
-  title:string,
-  uri: string
+export interface IPrecaution {
+  title: string;
+  uri: string;
 }
