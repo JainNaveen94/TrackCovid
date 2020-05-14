@@ -25,4 +25,12 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-# TrackCovid
+
+
+## Key Points ::
+  1. [***Live Demo***](http://nav-track-covid.surge.sh/)
+  2. ***On Dashboard There is a India's State wise Tabular List of Corona Reports and to Open the District wise Report of each State click on its respective row which shows the result in tabular format under the Popup.***
+  3. ***Login Button is Available at top right conrner for Admin Login as Admin has only rights to add the news for Users***
+  4. ***Other then that Latest-News, Precaution, Add-News(Only For Admin) modules are there in the Application.***
+  
+# Thank You
