@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { PageNotFoundComponent } from "../shared/components/Page-Not-Found-Component/page-not-found.component";
+import { PageNotFoundComponent } from "../core/components/Page-Not-Found-Component/page-not-found.component";
 import { AdminModuleComponent } from "../admin-module/admin-module.component";
 import { LatestNewsModuleComponent } from "../latest-news-module/latest-news-module.component";
 import { DashboardModuleComponent } from "../dashboard-module/dashboard-module.component";

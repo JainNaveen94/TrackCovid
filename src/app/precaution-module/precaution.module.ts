@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { PrecautionComponent } from "./Precaution-Component/precaution.component";
 
-import { SharedModule } from '../shared/shared.module';
+import { SharedModule } from '../core/shared.module';
 
 @NgModule({
   declarations: [PrecautionComponent],

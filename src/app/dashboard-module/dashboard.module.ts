@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { DashboardComponent } from "./Dashboard-Component/dashboard.component";
 
-import { SharedModule } from '../shared/shared.module';
+import { SharedModule } from '../core/shared.module';
 import { ResultCardComponent } from './shared/components/result-card/result-card.component';
 import { ResultTableComponent } from './shared/components/result-table/result-table.component';
 import { ResultPopupComponent } from './shared/components/result-popup/result-popup.component';
