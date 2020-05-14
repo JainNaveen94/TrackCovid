@@ -1,0 +1,20 @@
+<div mat-dialog-title>
+  <span class="popup-hd">{{ data.title }}</span>
+  <img (click)="onNoClick()" src="../../../../../assets/icons/cross.svg" height="40px" width="40px" class="float-right cursor-pointer" />
+</div>
+<div mat-dialog-content>
+  <app-result-table
+    [dataSource]="data.dataSource"
+    [columnDisplay]="data.columnDisplay"
+    [clickEnable]="data.clickEnable"
+  ></app-result-table>
+</div>
+<div mat-dialog-actions class="float-right">
+  <button
+    type="button"
+    class="float-right btn btn-danger"
+    (click)="onNoClick()"
+  >
+    Close
+  </button>
+</div>

@@ -7,25 +7,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { SharedModule } from './shared/shared.module';
 import { HeaderComponent } from './shared/components/Header-Component/header/header.component';
-import { PageNotFoundComponent } from "./shared/components/Page-Not-Found-Component/page-not-found.component";
+import { PageNotFoundComponent } from './shared/components/Page-Not-Found-Component/page-not-found.component';
 
 import { AdminModuleModule } from './admin-module/admin-module.module';
-import { LatestNewsModule } from "./latest-news-module/latest-news.module";
-import { DashboardModule } from "./dashboard-module/dashboard.module";
-import { PrecautionModule } from "./precaution-module/precaution.module";
+import { LatestNewsModule } from './latest-news-module/latest-news.module';
+import { DashboardModule } from './dashboard-module/dashboard.module';
+import { PrecautionModule } from './precaution-module/precaution.module';
 
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { ApiInMemoryDbService } from "./shared/api/api-in-memory-db.service";
+import { ApiInMemoryDbService } from './shared/api/api-in-memory-db.service';
 
-import { NewsService } from "./services/news/news.service";
+import { NewsService } from './services/news/news.service';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    PageNotFoundComponent
-  ],
+  declarations: [AppComponent, HeaderComponent, PageNotFoundComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -41,13 +37,11 @@ import { NewsService } from "./services/news/news.service";
       passThruUnknownUrl: true,
     }),
   ],
-  providers: [
-    NewsService
-  ],
-  bootstrap: [AppComponent]
+  providers: [NewsService],
+  bootstrap: [AppComponent],
 })
 export class AppModule {
   constructor() {
-    console.log("App Module loaded.");
+    console.log('App Module loaded.');
   }
 }
