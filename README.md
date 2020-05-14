@@ -33,4 +33,11 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
   3. ***Login Button is Available at top right conrner for Admin Login as Admin has only rights to add the news for Users***
   4. ***Other then that Latest-News, Precaution, Add-News(Only For Admin) modules are there in the Application.***
   
+## Username and Password For Admin Login ::
+
+| **User Name**  | **Password** |
+| ------------- | ------------- |
+| ***admin***  | ***admin***  |
+| ***naveen***  | ***naveen***  |
+
 # Thank You
